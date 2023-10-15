@@ -1,7 +1,7 @@
 package com.openclassrooms.realestatemanager.ui.createAndEditEstate;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
+import android.Manifest;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.ContentResolver;
@@ -11,10 +11,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.media.MediaPlayer;
-import android.media.MediaSync;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -27,12 +24,9 @@ import android.widget.ArrayAdapter;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.AppCompatEditText;
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.FileProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;

@@ -44,7 +44,7 @@
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_map_api_key" />
+            android:value="@string/google_maps_api_key" />
         <!-- For photos -->
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -70,7 +70,8 @@
         <activity
             android:name=".ui.createAndEditEstate.AddEditActivity"
             android:parentActivityName=".ui.mainPage.MainActivity" />
-        <activity android:name=".ui.mainPage.MainActivity">
+        <activity android:name=".ui.mainPage.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -11,7 +11,7 @@ import com.openclassrooms.realestatemanager.databinding.ActivityAddPhotoItemBind
 
 import java.util.Objects;
 
-;
+
 
 public class PhotoViewHolder extends RecyclerView.ViewHolder {
 

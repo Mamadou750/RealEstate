@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 
 android {
@@ -13,12 +15,38 @@ android {
         versionName "1.0"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildFeatures {
+            viewBinding true
+
+            testOptions {
+                unitTests {
+                    includeAndroidResources = true
+                }
+            }
+
+            javaCompileOptions {
+                annotationProcessorOptions {
+                    arguments += [
+                            "room.schemaLocation":"$projectDir/schemas".toString(),
+                            "room.incremental":"true",
+                            "room.expandProjection":"true"]
+                }
+            }
+
+        }
     }
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            buildConfigField 'String', "GOOGLE_MAP_API_KEY", GOOGLE_MAP_API_KEY
+            resValue 'string',"google_map_api_key", GOOGLE_MAP_API_KEY
+
         }
     }
     compileOptions {
@@ -43,9 +71,10 @@ dependencies {
     def room_version = '2.5.0'
 
     implementation "androidx.room:room-runtime:$room_version"
-    annotationProcessor "androidx.room:room-compiler:$room_version"
-//    implementation 'android.arch.persistence.room:runtime:1.1.1'
-//    kapt "android.arch.persistence.room:compiler:1.1.1"
+    //annotationProcessor("androidx.room:room-compiler:$roomVersion")
+    implementation 'android.arch.persistence.room:runtime:1.1.1'
+    annotationProcessor "androidx.room:room-compiler:2.5.2"
+    kapt "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-runtime:2.5.2"
     //for VIEW MODEL & LIVE DATA
     implementation 'android.arch.lifecycle:extensions:1.1.1'
@@ -67,6 +96,7 @@ dependencies {
 
     //For Kotlin
     implementation "androidx.core:core-ktx:1.10.1"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
     //For Glide
     implementation 'com.github.bumptech.glide:glide:4.15.1'

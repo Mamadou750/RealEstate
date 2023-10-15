@@ -2,6 +2,7 @@ package com.openclassrooms.realestatemanager.utils;
 
 import android.location.Address;
 
+
 import com.openclassrooms.realestatemanager.BuildConfig;
 import com.openclassrooms.realestatemanager.models.geocodingAPI.Geocoding;
 
