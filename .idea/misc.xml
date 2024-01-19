@@ -3,9 +3,39 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.191" />
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/drawable/ic_convert_dollar_48dp.xml" value="0.1" />
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/drawable/ic_launcher_background.xml" value="0.191" />
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout-land/activity_main.xml" value="0.30687830687830686" />
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout-land/estate_form.xml" value="0.30687830687830686" />
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout-sw600dp-land/activity_add_photo_item.xml" value="0.23293172690763053" />
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout-sw600dp-land/activity_main.xml" value="0.23293172690763053" />
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout-sw600dp-land/activity_search.xml" value="0.23293172690763053" />
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout-sw600dp-land/estate_form.xml" value="0.23293172690763053" />
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout-sw600dp/activity_add_photo_item.xml" value="0.27049180327868855" />
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout-sw600dp/activity_main.xml" value="0.27049180327868855" />
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout-sw600dp/estate_form.xml" value="0.27049180327868855" />
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout-v21/activity_add.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout-v21/activity_main.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout-v21/fragment_list_item.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout/activity_add.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout/activity_add_photo_item.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout/activity_detail.xml" value="0.358695652173913" />
         <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout/activity_map.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout/activity_search.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout/activity_search_result.xml" value="0.358695652173913" />
         <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout/activity_second.xml" value="0.358695652173913" />
         <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout/activity_utils.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout/dropdown_menu_popup_item.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout/estate_form.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout/fragment_detail.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout/fragment_list.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout/fragment_list_item.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/menu-land/activity_main_menu.xml" value="0.4125" />
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/menu/activity_main_menu.xml" value="0.3625" />
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/menu/description_menu.xml" value="0.3625" />
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
       </map>
     </option>
   </component>
