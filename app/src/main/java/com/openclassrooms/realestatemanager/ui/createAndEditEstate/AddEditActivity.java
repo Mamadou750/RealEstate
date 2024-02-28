@@ -151,7 +151,7 @@ public class AddEditActivity extends BaseActivity implements View.OnClickListene
         estateFormBinding.etAddress.addTextChangedListener(estateWatcher);
         estateFormBinding.etPostalCode.addTextChangedListener(estateWatcher);
         estateFormBinding.etCity.addTextChangedListener(estateWatcher);
-        estateFormBinding.etAgent.addTextChangedListener(estateWatcher);
+
         //for video in edit
         estateFormBinding.videoView.requestFocus();
         MediaController mediaController = new MediaController(this);
@@ -195,7 +195,7 @@ public class AddEditActivity extends BaseActivity implements View.OnClickListene
         estateFormBinding.etRooms.setAdapter(factoryAdapter(R.array.ROOMS));
         estateFormBinding.etBedrooms.setAdapter(factoryAdapter(R.array.BEDROOMS));
         estateFormBinding.etBathrooms.setAdapter(factoryAdapter(R.array.BATHROOMS));
-        estateFormBinding.etAgent.setAdapter(factoryAdapter(R.array.AGENT));
+
     }
 
     /**
@@ -293,10 +293,10 @@ public class AddEditActivity extends BaseActivity implements View.OnClickListene
         String addressInput = Objects.requireNonNull(estateFormBinding.inputAddress.getEditText()).getText().toString().trim();
         String postalCodeInput = Objects.requireNonNull(estateFormBinding.inputPostalCode.getEditText()).getText().toString().trim();
         String cityInput = Objects.requireNonNull(estateFormBinding.inputCity.getEditText()).getText().toString().trim();
-        String agentInput = Objects.requireNonNull(estateFormBinding.inputAgent.getEditText()).getText().toString();
+
 
         if (surfaceInput.isEmpty() && roomsInput.isEmpty() && bedroomsInput.isEmpty() && bathroomsInput.isEmpty() && priceInput.isEmpty()
-                && descriptionInput.isEmpty() && addressInput.isEmpty() && postalCodeInput.isEmpty() && cityInput.isEmpty() && agentInput.isEmpty()) {
+                && descriptionInput.isEmpty() && addressInput.isEmpty() && postalCodeInput.isEmpty() && cityInput.isEmpty()) {
             estateFormBinding.etSurface.setError("Required");
             estateFormBinding.etRooms.setError("Required");
             estateFormBinding.etBedrooms.setError("Required");
@@ -306,7 +306,7 @@ public class AddEditActivity extends BaseActivity implements View.OnClickListene
             estateFormBinding.etAddress.setError("Required");
             estateFormBinding.etPostalCode.setError("Required");
             estateFormBinding.etCity.setError("Required");
-            estateFormBinding.etAgent.setError("Required");
+
 
             return false;
         }
@@ -333,11 +333,11 @@ public class AddEditActivity extends BaseActivity implements View.OnClickListene
             String addressInput = Objects.requireNonNull(estateFormBinding.inputAddress.getEditText()).getText().toString().trim();
             String postalCodeInput = Objects.requireNonNull(estateFormBinding.inputPostalCode.getEditText()).getText().toString().trim();
             String cityInput = Objects.requireNonNull(estateFormBinding.inputCity.getEditText()).getText().toString().trim();
-            String agentInput = Objects.requireNonNull(estateFormBinding.inputAgent.getEditText()).getText().toString();
+
 
             estateFormBinding.validateFabBtn.setEnabled(!surfaceInput.isEmpty() && !roomsInput.isEmpty() && !bedroomsInput.isEmpty()
                     && !bathroomsInput.isEmpty() && !priceInput.isEmpty() && !descriptionInput.isEmpty() && !addressInput.isEmpty() && !postalCodeInput.isEmpty()
-                    && !cityInput.isEmpty() && !agentInput.isEmpty());
+                    && !cityInput.isEmpty());
         }
 
         @Override
@@ -377,7 +377,6 @@ public class AddEditActivity extends BaseActivity implements View.OnClickListene
                 estateFormBinding.availableRadiobtn.isChecked(),
                 Utils.dateStringToLong(Objects.requireNonNull(estateFormBinding.upOfSaleDate.getText()).toString()),
                 Objects.requireNonNull(estateFormBinding.soldDate.getText()).toString(),
-                estateFormBinding.etAgent.getText().toString(),
                 photo,
                 photoText,
                 video);
@@ -452,7 +451,7 @@ public class AddEditActivity extends BaseActivity implements View.OnClickListene
             estateFormBinding.availableRadiobtn.setChecked(estate.getSold());
             estateFormBinding.upOfSaleDate.setText(Utils.longDateToString(Objects.requireNonNull(estate.getUpOfSaleDate())));
             estateFormBinding.soldDate.setText(estate.getSoldDate());
-            estateFormBinding.etAgent.setText(estate.getAgentName(), false);
+
 
             if (!estate.getPhotoList().getPhotoList().isEmpty()) {
                 listPhoto.clear();
@@ -762,7 +761,7 @@ public class AddEditActivity extends BaseActivity implements View.OnClickListene
      * @param uri
      * @return
      */
-    public String getPath(Uri uri) {
+    public  String getPath(Uri uri) {
 
         String[] projection = {MediaStore.Video.Media.DATA};
         cursor = getContentResolver().query(uri, projection, null, null, null);

@@ -11,7 +11,7 @@ import com.openclassrooms.realestatemanager.database.dao.EstateDAO
 import com.openclassrooms.realestatemanager.models.Estate
 
 
-@Database(entities = [(Estate::class)], version = 1, exportSchema = false)
+@Database(entities = [(Estate::class)],  version = 1, exportSchema = false)
 @TypeConverters(UriListConverter::class, PhotoDescriptionConverter::class)
 abstract class EstateDatabase : RoomDatabase() {
 

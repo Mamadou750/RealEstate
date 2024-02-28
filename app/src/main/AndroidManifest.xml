@@ -8,6 +8,9 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -26,7 +29,18 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="q">
+        <activity
+            android:name=".ui.mainPage.LogActivity"
+            android:exported="true"
+            android:label="@string/title_activity_login">
 
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
 
         <activity
             android:name=".ui.detailDescription.DetailActivity"
@@ -44,8 +58,7 @@
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_api_key" />
-        <!-- For photos -->
+            android:value="@string/google_maps_api_key" /> <!-- For photos -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.openclassrooms.realestatemanager.fileprovider"
@@ -54,29 +67,26 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
-        </provider>
-        <!-- For ContentProvider -->
+        </provider> <!-- For ContentProvider -->
         <provider
-            android:authorities="com.openclassrooms.realestatemanager.provider"
             android:name=".provider.EstateContentProvider"
-            android:exported="true"/>
+            android:authorities="com.openclassrooms.realestatemanager.provider"
+            android:exported="true" />
 
-        <activity android:name=".ui.searchPage.SearchResultActivity"
-            android:parentActivityName=".ui.mainPage.MainActivity"/>
+        <activity
+            android:name=".ui.searchPage.SearchResultActivity"
+            android:parentActivityName=".ui.mainPage.MainActivity" />
         <activity android:name=".ui.mapPage.MapActivity" />
-        <activity android:name=".ui.searchPage.SearchActivity"
-            android:parentActivityName=".ui.mainPage.MainActivity"/>
-
+        <activity
+            android:name=".ui.searchPage.SearchActivity"
+            android:parentActivityName=".ui.mainPage.MainActivity" />
         <activity
             android:name=".ui.createAndEditEstate.AddEditActivity"
             android:parentActivityName=".ui.mainPage.MainActivity" />
-        <activity android:name=".ui.mainPage.MainActivity"
+        <activity
+            android:name=".ui.mainPage.MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

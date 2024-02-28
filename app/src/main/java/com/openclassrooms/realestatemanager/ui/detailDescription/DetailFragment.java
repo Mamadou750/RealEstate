@@ -1,13 +1,12 @@
 package com.openclassrooms.realestatemanager.ui.detailDescription;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,7 +40,6 @@ import com.openclassrooms.realestatemanager.models.geocodingAPI.Geocoding;
 import com.openclassrooms.realestatemanager.models.geocodingAPI.Result;
 import com.openclassrooms.realestatemanager.ui.EstateViewModel;
 import com.openclassrooms.realestatemanager.ui.PhotoAdapter;
-import com.openclassrooms.realestatemanager.ui.mainPage.MainActivity;
 import com.openclassrooms.realestatemanager.utils.EstateManagerStream;
 import com.openclassrooms.realestatemanager.utils.Utils;
 
@@ -202,11 +200,32 @@ public class DetailFragment extends Fragment implements OnMapReadyCallback {
             }
 
             if (!estate.getVideo().getPhotoList().isEmpty() && estate.getVideo().getPhotoList().size() > 0) {
-                for (String videoStr : estate.getVideo().getPhotoList()) {
+                fragmentDetailBinding.videoView.setVisibility(View.VISIBLE);
+                String recordedVideoPath = estate.getVideo().getPhotoList().get(0);
+                Objects.requireNonNull(fragmentDetailBinding.videoView).setVideoURI(Uri.parse(recordedVideoPath));
+                MediaController mediaController = new MediaController(requireContext());
+                fragmentDetailBinding.videoView.setMediaController(mediaController);
+                mediaController.setAnchorView(fragmentDetailBinding.videoView);
+                fragmentDetailBinding.videoView.start();
 
-                    fragmentDetailBinding.videoView.setVideoURI(Uri.parse(videoStr));
-                }
             }
+        }
+    }
+    public  String getPath(Uri uri) {
+
+        String[] projection = {MediaStore.Video.Media.DATA};
+        Cursor cursor = getActivity().getContentResolver().query(uri, projection, null, null, null);
+
+        if (cursor != null) {
+            // HERE YOU WILL GET A NULLPOINTER IF CURSOR IS NULL
+            // THIS CAN BE, IF YOU USED OI FILE MANAGER FOR PICKING THE MEDIA
+            int column_index = ((Cursor) cursor)
+                    .getColumnIndexOrThrow(MediaStore.Video.Media.DATA);
+
+            cursor.moveToFirst();
+            return cursor.getString(column_index);
+        } else {
+            return null;
         }
     }
 

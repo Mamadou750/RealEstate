@@ -1,6 +1,7 @@
 package com.openclassrooms.realestatemanager.ui.mainPage;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.renderscript.ScriptGroup;
@@ -163,6 +164,17 @@ public class MainActivity extends BaseActivity {
             case R.id.map_btn:
                 Intent mapIntent = new Intent(this, MapActivity.class);
                 startActivity(mapIntent);
+                return true;
+            case R.id.logout_btn:_btn:
+            intent=getIntent();
+                Bundle b = intent.getExtras();
+                String user = b.getString("user");
+                SharedPreferences sharedPrefs = getSharedPreferences(LogActivity.PREFS_NAME,MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPrefs.edit();
+                editor.clear();
+                editor.commit();
+                Intent logIntent = new Intent(this, LogActivity.class);
+                startActivity(logIntent);
                 return true;
             default:
                 return

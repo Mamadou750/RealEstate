@@ -26,7 +26,6 @@ data class Estate (@PrimaryKey (autoGenerate = true) val mandateNumberID: Long,
                    var sold:Boolean,
                    var upOfSaleDate: Long?,
                    var soldDate:String?,
-                   var agentName:String,
                    var photoList: UriList,
                    var photoDescription : PhotoDescription,
                    var video:UriList
@@ -35,7 +34,7 @@ data class Estate (@PrimaryKey (autoGenerate = true) val mandateNumberID: Long,
     constructor() : this(0, "", null, null,
             null, null, null, null, "", "",
             null, "", false, false, false, false,
-            false, null, "", "",
+            false, null, "",
             UriList(), PhotoDescription(), UriList())
 
 }
@@ -63,7 +62,7 @@ fun fromContentValues(values: ContentValues): Estate {
     if (values.containsKey("restaurants")) estate.restaurants = values.getAsBoolean("restaurants")
     if (values.containsKey("upOfSaleDate")) estate.upOfSaleDate = values.getAsLong("upOfSaleDate")
     if (values.containsKey("soldDate")) estate.soldDate = values.getAsString("soldDate")
-    if (values.containsKey("agentName")) estate.agentName = values.getAsString("agentName")
+
 
     return estate
 }

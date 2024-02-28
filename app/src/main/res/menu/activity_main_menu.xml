@@ -18,4 +18,13 @@
 
     </item>
 
+    <item
+        android:id="@+id/logout_btn"
+        android:icon="@drawable/baseline_power_settings_new_24"
+        app:showAsAction="ifRoom"
+        android:title="logout">
+
+    </item>
+
+
 </menu>

@@ -6,6 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -27,14 +28,16 @@ public class Utils {
      * @param dollars
      * @return
      */
-    public static double convertDollarToEuro(double dollars) {
+    public static String convertDollarToEuro(double dollars) {
+        DecimalFormat df = new DecimalFormat("0.00"); // import java.text.DecimalFormat;
+        return df.format((double) (dollars * 0.92));
 
-        return (double) Math.round(dollars * 0.812);
     }
 
     //convert euro to dollar
-    public static double convertEuroToDollar(double euros) {
-        return (double) Math.round(euros * 1.111);
+    public static String convertEuroToDollar(double euros) {
+        DecimalFormat df = new DecimalFormat("0.00"); // import java.text.DecimalFormat;
+        return df.format((double) (euros * 1.08));
     }
 
     /**
