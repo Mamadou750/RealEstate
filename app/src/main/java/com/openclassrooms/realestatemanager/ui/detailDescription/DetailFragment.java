@@ -1,7 +1,9 @@
 package com.openclassrooms.realestatemanager.ui.detailDescription;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
@@ -13,9 +15,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.MediaController;
 
+import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -55,6 +59,7 @@ import io.reactivex.observers.DisposableObserver;
 public class DetailFragment extends Fragment implements OnMapReadyCallback {
 
     protected static final int PERMS_CALL_ID = 200;
+    private ActivityResultLauncher<String[]> activityResultLauncher;
     private FragmentDetailBinding fragmentDetailBinding;
     private Estate estate;
     private EstateViewModel estateViewModel;
@@ -72,6 +77,7 @@ public class DetailFragment extends Fragment implements OnMapReadyCallback {
     private long estateEdit;
     private Estate estateDetail;
     private long estateDetailId;
+
 
     public DetailFragment() {
         // Required empty public constructor
@@ -190,6 +196,12 @@ public class DetailFragment extends Fragment implements OnMapReadyCallback {
             fragmentDetailBinding.etCity.setText(estate.getCity());
             fragmentDetailBinding.etCity.setEnabled(false);
 
+
+
+
+
+
+
             listPhoto.clear();
             if (!estate.getPhotoList().getPhotoList().isEmpty()) {
                 for (String photoStr : estate.getPhotoList().getPhotoList()) {
@@ -200,36 +212,14 @@ public class DetailFragment extends Fragment implements OnMapReadyCallback {
             }
 
             if (!estate.getVideo().getPhotoList().isEmpty() && estate.getVideo().getPhotoList().size() > 0) {
-                fragmentDetailBinding.videoView.setVisibility(View.VISIBLE);
-                String recordedVideoPath = estate.getVideo().getPhotoList().get(0);
-                Objects.requireNonNull(fragmentDetailBinding.videoView).setVideoURI(Uri.parse(recordedVideoPath));
-                MediaController mediaController = new MediaController(requireContext());
-                fragmentDetailBinding.videoView.setMediaController(mediaController);
-                mediaController.setAnchorView(fragmentDetailBinding.videoView);
-                fragmentDetailBinding.videoView.start();
+                for (String videoStr : estate.getVideo().getPhotoList()) {
+
+                    fragmentDetailBinding.videoView.setVideoURI(Uri.parse(videoStr));
+                }
 
             }
         }
     }
-    public  String getPath(Uri uri) {
-
-        String[] projection = {MediaStore.Video.Media.DATA};
-        Cursor cursor = getActivity().getContentResolver().query(uri, projection, null, null, null);
-
-        if (cursor != null) {
-            // HERE YOU WILL GET A NULLPOINTER IF CURSOR IS NULL
-            // THIS CAN BE, IF YOU USED OI FILE MANAGER FOR PICKING THE MEDIA
-            int column_index = ((Cursor) cursor)
-                    .getColumnIndexOrThrow(MediaStore.Video.Media.DATA);
-
-            cursor.moveToFirst();
-            return cursor.getString(column_index);
-        } else {
-            return null;
-        }
-    }
-
-
 
 
 
