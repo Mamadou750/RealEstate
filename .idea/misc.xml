@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.191" />
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/drawable/baseline_power_settings_new_24.xml" value="0.2055" />
         <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/drawable/ic_convert_dollar_48dp.xml" value="0.1" />
         <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/drawable/ic_launcher_background.xml" value="0.191" />
         <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout-land/activity_main.xml" value="0.30687830687830686" />
@@ -21,8 +22,10 @@
         <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout/activity_add.xml" value="0.358695652173913" />
         <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout/activity_add_photo_item.xml" value="0.358695652173913" />
         <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout/activity_detail.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout/activity_log.xml" value="0.358695652173913" />
         <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
         <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout/activity_map.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout/activity_reset_password.xml" value="0.358695652173913" />
         <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout/activity_search.xml" value="0.358695652173913" />
         <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout/activity_search_result.xml" value="0.358695652173913" />
         <entry key="..\:/Users/aliou/OneDrive/Documents/GitHub/RealEstate/app/src/main/res/layout/activity_second.xml" value="0.358695652173913" />

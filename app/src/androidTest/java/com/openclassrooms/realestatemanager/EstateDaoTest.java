@@ -35,10 +35,10 @@ public class EstateDaoTest {
 
 
     private static Estate ESTATE_HOUSE = new Estate(1, "house", 200, 4, 2, 1, 200, 100000.00, "Très belle maison", "2 rue du bois du bray", 77127, "Lieusaint", true, false,
-            false, true, true, 1601510400000L,"", "Boyer Donavan",uriListTest,descriptionTest,uriListTest);
+            false, true, true, 1601510400000L,"",uriListTest,descriptionTest,uriListTest);
 
     private static Estate ESTATE_FLAT = new Estate(2, "flat", 80, 2, 1, 1, 0, 50000.00, "Very nice flat", "5 rue longue", 66000, "Perpignan", false, true,
-            true, true, true,1601510400000L,"","Plaza Sylvain", uriListTest,descriptionTest,uriListTest);
+            true, true, true,1601510400000L,"", uriListTest,descriptionTest,uriListTest);
     @Rule
     public InstantTaskExecutorRule instantTaskExecutorRule = new InstantTaskExecutorRule();
 

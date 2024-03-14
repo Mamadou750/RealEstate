@@ -1,6 +1,10 @@
 package com.openclassrooms.realestatemanager.ui.listPage;
 
 import android.annotation.SuppressLint;
+import android.database.Cursor;
+import android.net.Uri;
+import android.provider.MediaStore;
+import android.widget.MediaController;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -37,10 +41,10 @@ public class ListViewHolder extends RecyclerView.ViewHolder {
         Objects.requireNonNull(fragmentListItemBinding.City).setText(estate.getCity());
         //for Price
         if (estate.getPrice() != null) {
-            if (locale == Locale.US) {
-                Objects.requireNonNull(fragmentListItemBinding.price).setText("$" + NumberFormat.getInstance(Locale.US).format(estate.getPrice()));
+            if (locale.equals(Locale.US)) {
+                Objects.requireNonNull(fragmentListItemBinding.price).setText("$" + (estate.getPrice()));
             } else {
-                Objects.requireNonNull(fragmentListItemBinding.price).setText("€" + NumberFormat.getInstance(Locale.FRANCE).format(Utils.convertDollarToEuro(estate.getPrice())));
+                Objects.requireNonNull(fragmentListItemBinding.price).setText("€" + (Utils.convertDollarToEuro(estate.getPrice())));
             }
         }
         //for estate sold

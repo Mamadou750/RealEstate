@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -13,6 +14,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.openclassrooms.realestatemanager.R;
@@ -30,11 +32,14 @@ public abstract class BaseActivity extends AppCompatActivity {
     private static final int RC_CAMERA_AND_STORAGE_COARSELOCATION_FINELOCATION = 100;
     private static final String[] CAM_AND_READ_EXTERNAL_STORAGE =
             {Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE,
-                    Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
+                    Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION,
+                    Manifest.permission.READ_MEDIA_AUDIO,Manifest.permission.READ_MEDIA_IMAGES,Manifest.permission.READ_MEDIA_VIDEO};
 
     protected ActionBar ab;
     private LocationManager locationManager;
     private GoogleMap googleMap;
+
+    private boolean permissionGranted = false;
 
 
     /**
@@ -83,6 +88,5 @@ public abstract class BaseActivity extends AppCompatActivity {
                     RC_CAMERA_AND_STORAGE_COARSELOCATION_FINELOCATION, CAM_AND_READ_EXTERNAL_STORAGE);
         }
     }
-
 
 }

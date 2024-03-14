@@ -2,21 +2,24 @@ package com.openclassrooms.realestatemanager.ui.detailDescription;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.MediaController;
 
+import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -41,7 +44,6 @@ import com.openclassrooms.realestatemanager.models.geocodingAPI.Geocoding;
 import com.openclassrooms.realestatemanager.models.geocodingAPI.Result;
 import com.openclassrooms.realestatemanager.ui.EstateViewModel;
 import com.openclassrooms.realestatemanager.ui.PhotoAdapter;
-import com.openclassrooms.realestatemanager.ui.mainPage.MainActivity;
 import com.openclassrooms.realestatemanager.utils.EstateManagerStream;
 import com.openclassrooms.realestatemanager.utils.Utils;
 
@@ -57,6 +59,7 @@ import io.reactivex.observers.DisposableObserver;
 public class DetailFragment extends Fragment implements OnMapReadyCallback {
 
     protected static final int PERMS_CALL_ID = 200;
+    private ActivityResultLauncher<String[]> activityResultLauncher;
     private FragmentDetailBinding fragmentDetailBinding;
     private Estate estate;
     private EstateViewModel estateViewModel;
@@ -74,6 +77,7 @@ public class DetailFragment extends Fragment implements OnMapReadyCallback {
     private long estateEdit;
     private Estate estateDetail;
     private long estateDetailId;
+
 
     public DetailFragment() {
         // Required empty public constructor
@@ -192,6 +196,12 @@ public class DetailFragment extends Fragment implements OnMapReadyCallback {
             fragmentDetailBinding.etCity.setText(estate.getCity());
             fragmentDetailBinding.etCity.setEnabled(false);
 
+
+
+
+
+
+
             listPhoto.clear();
             if (!estate.getPhotoList().getPhotoList().isEmpty()) {
                 for (String photoStr : estate.getPhotoList().getPhotoList()) {
@@ -206,11 +216,10 @@ public class DetailFragment extends Fragment implements OnMapReadyCallback {
 
                     fragmentDetailBinding.videoView.setVideoURI(Uri.parse(videoStr));
                 }
+
             }
         }
     }
-
-
 
 
 

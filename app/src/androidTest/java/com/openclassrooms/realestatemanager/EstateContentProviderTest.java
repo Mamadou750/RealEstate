@@ -30,7 +30,7 @@ public class EstateContentProviderTest {
     private ContentResolver mContentResolver;
 
     //Data Set for test
-    private static long mandateNumberID = 1;
+    private static final long mandateNumberID = 1;
 
     @Before
     public void setUp() {
@@ -86,7 +86,6 @@ public class EstateContentProviderTest {
         values.put("restaurants", true);
         values.put("upOfSaleDate", "27/01/2021");
         values.put("soldDate", "");
-        values.put("agentName", "Boyer Donavan");
 
         return values;
     }

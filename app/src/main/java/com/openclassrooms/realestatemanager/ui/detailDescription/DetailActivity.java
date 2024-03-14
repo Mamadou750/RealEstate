@@ -1,5 +1,6 @@
 package com.openclassrooms.realestatemanager.ui.detailDescription;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,7 +8,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
+import androidx.core.app.ActivityCompat;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.openclassrooms.realestatemanager.R;
@@ -27,6 +30,8 @@ public class DetailActivity extends BaseActivity {
     private DetailFragment detailFragment;
     private Estate estate;
     private EstateViewModel estateViewModel;
+    final int RequestReadPermissionID = 1001;
+
 
 
 
@@ -36,7 +41,6 @@ public class DetailActivity extends BaseActivity {
         activityDetailBinding = ActivityDetailBinding.inflate(getLayoutInflater());
         View view = activityDetailBinding.getRoot();
         setContentView(view);
-
         this.configureToolbar();
         this.configureUpButton();
         this.configureAndShowDetailFragment();
@@ -119,4 +123,6 @@ public class DetailActivity extends BaseActivity {
         estate = (Estate) intentTablet.getSerializableExtra("estate");
         Log.d("estateDetail", "estateDetail" + estate);
     }
+
+
 }
