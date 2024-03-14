@@ -19,8 +19,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.openclassrooms.realestatemanager.R;
+import com.openclassrooms.realestatemanager.ui.BaseActivity;
 
-public class LogActivity extends AppCompatActivity  {
+public class LogActivity extends BaseActivity {
 
     public static String  PREFS_NAME="mypre";
     public static String PREF_USERNAME="email";

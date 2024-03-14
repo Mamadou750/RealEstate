@@ -453,33 +453,6 @@
                 android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/input_agent"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="600dp"
-            android:layout_marginEnd="20dp"
-            app:boxStrokeColor="@color/colorAccent"
-            app:errorEnabled="true"
-            app:helperText="Required"
-            app:helperTextEnabled="true">
-
-            <AutoCompleteTextView
-                android:id="@+id/et_agent"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:clickable="false"
-                android:focusable="true"
-                android:focusableInTouchMode="false"
-                android:hint="Real Estate Agent Name"
-                android:inputType="none"
-                android:paddingBottom="8dp"
-                android:textSize="12sp" />
-        </com.google.android.material.textfield.TextInputLayout>
-
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/photo_btn"
             android:layout_width="30dp"

@@ -35,8 +35,13 @@ import com.openclassrooms.realestatemanager.ui.EstateViewModel;
 import com.openclassrooms.realestatemanager.ui.detailDescription.DetailActivity;
 import com.openclassrooms.realestatemanager.utils.EstateManagerStream;
 import com.openclassrooms.realestatemanager.utils.Utils;
+import io.reactivex.exceptions.UndeliverableException;
+import io.reactivex.plugins.RxJavaPlugins;
+import com.polidea.rxandroidble2.exceptions.BleException;
 
+import java.io.IOException;
 import java.io.Serializable;
+import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -45,6 +50,7 @@ import java.util.Objects;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.observers.DisposableObserver;
+import io.reactivex.plugins.RxJavaPlugins;
 
 public class MapActivity extends BaseActivity implements OnMapReadyCallback, LocationListener, Serializable {
 
@@ -65,7 +71,9 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback, Loc
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_map);
+
 
         configureViewModel();
         //For map
@@ -84,6 +92,8 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback, Loc
         this.estateViewModel = ViewModelProviders.of(this, viewModelFactory).get(EstateViewModel.class);
 
     }
+
+
 
     /**
      * For permissions to position access
@@ -259,17 +269,17 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback, Loc
                     .subscribeWith(new DisposableObserver<Geocoding>() {
                         @Override
                         public void onNext(Geocoding geocoding) {
+                            if(!geocoding.getResults().isEmpty() && geocoding.getResults().size()>0) {
+                                LatLng latLng = new LatLng(geocoding.getResults().get(0).getGeometry()
+                                        .getLocation().getLat(), geocoding.getResults().get(0).getGeometry()
+                                        .getLocation().getLng());
 
-                            LatLng latLng = new LatLng(geocoding.getResults().get(0).getGeometry()
-                                    .getLocation().getLat(), geocoding.getResults().get(0).getGeometry()
-                                    .getLocation().getLng());
+                                Marker marker = map.addMarker(new MarkerOptions().position(latLng)
+                                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET))
+                                        .title(geocoding.getResults().get(0).getFormattedAddress()));
 
-                            Marker marker = map.addMarker(new MarkerOptions().position(latLng)
-                                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET))
-                                    .title(geocoding.getResults().get(0).getFormattedAddress()));
-
-                            marker.setTag(idList.get(adressList.indexOf(address)));
-
+                                marker.setTag(idList.get(adressList.indexOf(address)));
+                            }
                         }
 
                         @Override

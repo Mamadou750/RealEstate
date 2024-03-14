@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import com.openclassrooms.realestatemanager.utils.Utils;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
@@ -13,13 +14,20 @@ public class UtilsTest {
 
 
     @Test
-    public void convertEuroToDollarTest() {
-        assertEquals(1111, Utils.convertEuroToDollar(1000));
+    public void checkConvertDollarToEuro_correct(){
+        int numberToConvert = 455;
+        String numberToConvertAsString = Integer.toString(numberToConvert);
+        assertEquals( numberToConvertAsString , Utils.convertDollarToEuro(500));
+
+
     }
 
     @Test
-    public void convertDollarToEuroTest() {
-        assertEquals(812,Utils.convertDollarToEuro(1000));
+    public void checkConvertEuroToDollar_correct(){
+        int numberToConvert = 540;
+        String numberToConvertAsString = Integer.toString(numberToConvert);
+        assertEquals( numberToConvertAsString , Utils.convertEuroToDollar(500));
+
     }
 
     @Test

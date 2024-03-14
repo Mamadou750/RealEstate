@@ -143,6 +143,7 @@ dependencies {
 
 //Google sign-in with Firebase Authentication
     implementation 'com.google.android.gms:play-services-auth:20.5.0'
+    implementation "com.polidea.rxandroidble2:rxandroidble:1.11.1"
 
 
 }

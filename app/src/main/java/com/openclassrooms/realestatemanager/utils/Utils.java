@@ -21,6 +21,7 @@ public class Utils {
 
     private static long dateToLong;
 
+
     /**
      * Conversion d'un prix d'un bien immobilier (Dollars vers Euros)
      * NOTE : NE PAS SUPPRIMER, A MONTRER DURANT LA SOUTENANCE
@@ -29,15 +30,15 @@ public class Utils {
      * @return
      */
     public static String convertDollarToEuro(double dollars) {
-        DecimalFormat df = new DecimalFormat("0.00"); // import java.text.DecimalFormat;
-        return df.format((double) (dollars * 0.92));
+        DecimalFormat df = new DecimalFormat(); // import java.text.DecimalFormat;
+        return df.format((double) (dollars * Const.DOLLARS_TO_EURO));
 
     }
 
     //convert euro to dollar
     public static String convertEuroToDollar(double euros) {
-        DecimalFormat df = new DecimalFormat("0.00"); // import java.text.DecimalFormat;
-        return df.format((double) (euros * 1.08));
+        DecimalFormat df = new DecimalFormat(); // import java.text.DecimalFormat;
+        return df.format((double) (euros * Const.EURO_TO_DOLLARS));
     }
 
     /**
